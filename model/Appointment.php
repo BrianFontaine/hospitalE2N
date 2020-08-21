@@ -52,7 +52,7 @@
          */
 		public function readAll()
 		{
-            $listPatients_sql = "SELECT `appointments`.`id` AS identifiant_app,date_format(`dateHour`,'%d/%m/%Y %H:%i') AS dateHour_fr,`idPatients`,`firstname`,`lastname` FROM `appointments` JOIN `patients` ON `patients`.`id` = `appointments`.`id` ORDER BY `dateHour` ASC";
+            $listPatients_sql = "SELECT `appointments`.`id` AS identifiant_app,date_format(`dateHour`,'%d/%m/%Y %H:%i') AS dateHour_fr,`idPatients`,`firstname`,`lastname` FROM `appointments` JOIN `patients` ON `patients`.`id` = `appointments`.`idPatients` ORDER BY `dateHour` ASC";
             $listAppointment_stmt = $this->db->query($listPatients_sql);
             $listAppointment = [];
             if ($listAppointment_stmt instanceof PDOstatement ) {

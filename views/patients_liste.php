@@ -36,6 +36,8 @@
             <p class="card-text">Nom : <?= $patient->lastname; ?></p>
             <p class="card-text">Date de Naissance : <?= $patient->birthdate_format; ?></p>
             <a class="btn btn-primary col-12" href="patients_profil_ctrl.php?id=<?= $patient->id; ?>">Voir le profil</a>
+            <a class="btn btn-danger col-12" href="delete_profil_ctrl.php?id=<?= $patient->id; ?>">Supprimer le patients</a>
+
         </div>
     </div>
     
