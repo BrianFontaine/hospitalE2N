@@ -34,10 +34,10 @@
     </nav>
     <div id="result" style="position:absolute;left:0;right:0;"></div>
     <div id="patients">
-        <div class="container row m-auto">
+        <div class="container row m-auto " id="list">
             <?php if (count($listPatients) > 0) { 
         foreach ($listPatients as $number => $patient) { ?>
-            <div class="card mt-4 ml-4 " style="width: 18rem;background-color: rgba(74, 122, 233, 0.6) !important;">
+            <div  class="card mt-4 ml-4 " style="width: 18rem;background-color: rgba(74, 122, 233, 0.6) !important;">
                 <img class="card-img-top"
                     src="https://www.petitesaffiches.fr/annuaire/images/avocats_default_avatar.png"
                     alt="Card image cap">
@@ -72,7 +72,7 @@
                 //on vide le champ 
                 list.innerHTML = '';
                 document.querySelector('#result').classList.remove('d-none');
-                document.querySelector('#patients').classList.add('d-none');
+                document.querySelector('#list').classList.add('d-none');
                 let data = new FormData();
                 data.append('patients_list',search);
                 //on recherche a partir de deux caractere  et on renvoie la 
@@ -92,7 +92,7 @@
                 //traitement du php qui est retourner 
                 .then(function (data) {
                     //ceci est une fonction flecher => === function()
-                    let ul = '<ul class="list-group">';
+                    let ul = '<div class="container row m-auto">';
                     data.forEach(patient => 
                     {
                     ul += 
@@ -113,7 +113,7 @@
             }
             else   
             {
-                document.querySelector('#patients').classList.remove('d-none');
+                document.querySelector('#list').classList.remove('d-none');
                 document.querySelector('#result').classList.add('d-none');
             }
         })

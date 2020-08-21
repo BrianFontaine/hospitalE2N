@@ -23,11 +23,11 @@
     </nav>
 <div class="d-flex align-items-center">
     <form action="" method="POST" class="border col-6 rounded form">
-    <div class="col-12" role="alert">
-            <?php if (isset($createPatientsSuccess)): ?>
-                <p>Le patient a été enregistré avec succès ! :)</p>
-            <?php endif; ?>
+    <?php if (isset($createPatientsSuccess)): ?>
+    <div class="col-12 alert-success p-3 text-center h3" role="alert">
+            <p>Le patient a été enregistré avec succès ! 👌</p>
         </div>
+        <?php endif; ?>
         <div class="col-md-10 m-auto">
             <legend>Ajouter un patient</legend>
             <div>
