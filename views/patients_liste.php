@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Liste des patients</title>
 </head>
-
 <body>
     <nav class="navbar justify-content-around">
         <a href="../index.php" class="nav-link  "><img
@@ -53,7 +52,6 @@
                         href="delete_patients_ctrl.php?id=<?= $patient->id; ?>">Supprimer le patients</a>
                 </div>
             </div>
-
             <?php } ?>
             <?php } else { ?>
             <h1 class="text-center">Aucun patients n'as été trouver
@@ -64,13 +62,10 @@
             <?php } ?>
         </div>
     </div>
-
-
 </body>
 <script>
         let sp = document.getElementById('patients_list');
         let list = document.getElementById('result');
-
         sp.addEventListener('keyup', function () {
             let search = this.value;
             if (search.length >= 2) {
@@ -115,7 +110,8 @@
                     })
                     list.innerHTML = ul;
                 })
-            }else   
+            }
+            else   
             {
                 document.querySelector('#patients').classList.remove('d-none');
                 document.querySelector('#result').classList.add('d-none');
