@@ -35,8 +35,8 @@
                         <p class="card-text">Date du rendez-vous : <br> <?= $appointment->dateHour_fr; ?></p>
                         <p class="card-text"> Patient : <br><?= $appointment->lastname; ?>
                             <?= $appointment->firstname; ?></p>
-                        <a class="btn btn-primary col-12"
-                            href="modify_appointment_ctrl.php?id=<?= $appointment->identifiant_app; ?>">Modifier le rendez-vous</a>
+                        <a class="btn btn-primary col-12 mb-2" href="modify_appointment_ctrl.php?id=<?= $appointment->identifiant_app; ?>">Modifier le rendez-vous</a>
+                        <a class="btn btn-danger col-12 mb-2" href="delete_appointment_ctrl.php?id=<?= $appointment->identifiant_app; ?>">Supprimer le rendez-vous</a>
                     </div>
                 </div>
                 <?php } ?>

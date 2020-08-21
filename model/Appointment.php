@@ -99,6 +99,9 @@
 
 		public function delete()
 		{
-			
+            $sql = 'DELETE FROM `appointments` WHERE `id`=:id';
+            $appointmentStatement = $this->db->prepare($sql);
+            $appointmentStatement->bindValue(':id', $this->id ,PDO::PARAM_INT);
+            return $appointmentStatement->execute();
 		}
     }
