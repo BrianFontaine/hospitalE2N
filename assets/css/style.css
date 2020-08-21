@@ -20,7 +20,7 @@ nav
     color: #328BCE;
     font-size: 1em !important;
 }
-form
+.form
 {
     background-color: rgba(74, 122, 233, 0.6);
     color: cornsilk;
@@ -28,7 +28,7 @@ form
     margin-top: 10%;
     margin-left: 25%;
 }
-form legend
+.form legend
 {
     text-align: center;
     font-size: 1.75em;

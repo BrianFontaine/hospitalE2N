@@ -25,7 +25,7 @@
         <a href="create_appointment_ctrl.php" class="nav-link ">Ajouter un rendez-vous</a>
         <a href="list_appointment_ctrl.php" class="nav-link">Liste des rendez-vous</a>
     </nav>
-    <form action="modify_patients_ctrl.php" method="Post" class="border col-6 rounded">
+    <form action="modify_patients_ctrl.php" method="Post" class="border col-6 rounded form">
         <div class="col-md-10 m-auto">
             <div class="col-12" role="alert">
                 <?php if (isset($updateSuccess)): ?>

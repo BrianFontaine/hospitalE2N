@@ -22,7 +22,7 @@
         <a href="list_appointment_ctrl.php" class="nav-link">Liste des rendez-vous</a>
     </nav>
 <div class="d-flex align-items-center">
-    <form action="" method="POST" class="border col-6 rounded">
+    <form action="" method="POST" class="border col-6 rounded form">
     <div class="col-12" role="alert">
             <?php if (isset($createPatientsSuccess)): ?>
                 <p>Le patient a été enregistré avec succès ! :)</p>
