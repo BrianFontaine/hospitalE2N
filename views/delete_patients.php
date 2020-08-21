@@ -23,17 +23,17 @@
     </nav>
 <div class="d-flex align-items-center">
     
-        <?php if (isset($deleteSuccess)): ?>
+        <?php if (isset($deletePatientsSuccess)): ?>
             <div class="col-12" role="alert">
                 <p>Le patients a été supprimé avec succès ! :)</p>
             </div>
         <?php else : ?>
             <h2 class="text-center text-dark">Etes vous sûr de vouloir supprimer le patient <?= $fullName; ?> et ses rendez-vous ? </h2>
         <?php endif; ?>
-    <form action="delete_appointment_ctrl.php" method="POST">
+    <form action="delete_patients_ctrl.php" method="POST">
             <input type="hidden" name="fullName" value="<?= $fullName; ?>">
             <input type="hidden" name="id" value="<?= $id; ?>">
-            <a class="btn btn-infos" href="list_appointment_ctrl.php">Annuler</a>
+            <a class="btn btn-infos" href="liste_patients_ctrl.php">Annuler</a>
             <button class="btn btn-danger" type="submit">Supprimer</button>
     </form>
 </div>

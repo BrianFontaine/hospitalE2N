@@ -103,5 +103,12 @@
             $appointmentStatement = $this->db->prepare($sql);
             $appointmentStatement->bindValue(':id', $this->id ,PDO::PARAM_INT);
             return $appointmentStatement->execute();
-		}
+        }
+        public function deleteAppointment($idPatient)
+        {
+            $sql = 'DELETE FROM `appointments` WHERE `idPatients`=:id';
+            $patientsDelete = $this->db->prepare($sql);
+            $patientsDelete->bindValue(':id', $idPatient,PDO::PARAM_INT);
+            return $patientsDelete->execute();
+        }
     }

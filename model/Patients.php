@@ -97,7 +97,7 @@
 		{
             $sql = 'UPDATE `patients` SET `lastname`=:lastname,`firstname`=:firstname,`birthdate`=:birthdate,`phone`=:phone,`mail`=:mail WHERE `id`=:id';
             $patientsStatement = $this->db->prepare($sql);
-            $patientsStatement->bindValue(':id', $this->id,PDO::PARAM_STR);
+            $patientsStatement->bindValue(':id', $this->id,PDO::PARAM_INT);
 			$patientsStatement->bindValue(':lastname', $this->lastname,PDO::PARAM_STR);
             $patientsStatement->bindValue(':firstname', $this->firstname,PDO::PARAM_STR);
             $patientsStatement->bindvalue(':birthdate',$this->birthdate,PDO::PARAM_STR);
@@ -109,6 +109,9 @@
 
 		public function delete()
 		{
-			
-		}
+            $sql = 'DELETE FROM `patients` WHERE `id`=:id';
+            $patientsDelete = $this->db->prepare($sql);
+            $patientsDelete->bindValue(':id', $this->id,PDO::PARAM_INT);
+            return $patientsDelete->execute();
+        }
     }
