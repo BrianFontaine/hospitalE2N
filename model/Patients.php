@@ -61,7 +61,8 @@
             $searchPatients->bindValue(':firstname',$text.'%',PDO::PARAM_STR);
             $patientsView = [];
             if ($searchPatients->execute()){
-				$patientsView = $searchPatients->fetchAll(PDO::FETCH_OBJ);
+                $patientsView = $searchPatients->fetchAll(PDO::FETCH_ASSOC);
+
 			}
             return $patientsView;
         }
@@ -69,16 +70,32 @@
          * retour liste des patients enregistré
          * @return array
          */
-		public function readAll()
+		public function readAll($currentPage,$patientPerPage)
 		{
-            $listPatients_sql = 'SELECT `id`,`lastname`, `firstname`,DATE_FORMAT(`birthdate`,"%d/%m/%Y") AS birthdate_format FROM `patients`';
-            $patientsStatement = $this->db->query($listPatients_sql);
+            $offset = ($currentPage - 1) * $patientPerPage;
+            $listPatients_sql = 'SELECT `id`,`lastname`, `firstname`,DATE_FORMAT(`birthdate`,"%d/%m/%Y") AS birthdate_format FROM `patients` ORDER BY `lastname` ASC LIMIT :offset , :limit';
+            $patientsStatement = $this->db->prepare($listPatients_sql);
+            $patientsStatement->bindValue(':offset', $offset ,PDO::PARAM_INT);
+            $patientsStatement->bindValue(':limit', $patientPerPage , PDO::PARAM_INT);
             $listPatients = [];
-            if ($patientsStatement instanceof PDOstatement ) {
-                $listPatients = $patientsStatement->fetchAll(PDO::FETCH_OBJ);
+            if ($patientsStatement->execute()) {
+                if ($patientsStatement instanceof PDOstatement ) {
+                    $listPatients = $patientsStatement->fetchAll(PDO::FETCH_OBJ);
+                }
             }
             return $listPatients;
-		}
+        }
+        public function countPatients()
+        {
+            $count_sql = 'SELECT COUNT(`id`) FROM `patients`';
+            $count_statement = $this->db->query($count_sql);
+            $countPatients = 0;
+            if ($count_statement instanceof PDOstatement)
+            {
+                $countPatients = $count_statement->fetchColumn();
+            }
+            return $countPatients;
+        }
 
 		public function readSingle()
 		{

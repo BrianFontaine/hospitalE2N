@@ -28,7 +28,6 @@
                 <input type="search" class="form-control rounded-pill mr-3 " name="patients_list" id="patients_list"
                     placeholder="Rechercher..." style="width:250px;">
                 <input type="hidden" name="idPatient" id="idPatient">
-                <button class="btn ml-n3" type="submit" style="width:40px;">&#128269</button>
             </div>
         </form>
     </nav>
@@ -53,7 +52,14 @@
                 </div>
             </div>
             <?php } ?>
-            <?php } else { ?>
+            <div class="bg-dark mt-3 mb-3 col-md-12 w-100 form-control text-light">
+                <div class="row m-auto justify-content-between mt-2 mb-2">
+                    <?php for ($i=0; $i < $pageNumer ; $i++) { ?>
+                        <a class="text-center btn btn-secondary" href="?page=<?=$i +1 ;?>" style="width:40px;"><?= $i +1 ; ?></a> 
+                    <?php } ?>
+                </div>
+            </div>
+            <?php } else { ?> 
             <h1 class="text-center">Aucun patients n'as été trouver
                 <a href="create_patients_ctrl.php">
                     Veuillez ajouter un patients

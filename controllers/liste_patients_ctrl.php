@@ -9,10 +9,15 @@ if (isset($_POST['patients_list'])) {
     exit();
 }
 
+$page = ctype_digit($_GET['page']) ? (int) $_GET['page'] : 1;
+// var_dump($page);
+$perPage = 6;
 $patient = new Patients();
 
-$listPatients = $patient->readAll();
+$listPatients = $patient->readAll($page,$perPage);
 // var_dump($listPatients);
+$patientTotal = $patient->countPatients();
+$pageNumer = ceil($patientTotal/$perPage); 
 
 require_once dirname(__FILE__).'/../views/patients_liste.php';
 ?>
