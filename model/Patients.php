@@ -51,7 +51,12 @@
             $patientsStatement->bindvalue(':birthdate',$this->birthdate,PDO::PARAM_STR);
             $patientsStatement->bindvalue(':phone',$this->phone,PDO::PARAM_STR);
             $patientsStatement->bindvalue(':mail',$this->mail,PDO::PARAM_STR);
-			return $patientsStatement->execute();
+            $id = null;
+            if($patientsStatement->execute())
+            {
+                $id = $this->db->lastInsertId();
+            }
+            return $id;
         }
         public function findPatient($text)
         {

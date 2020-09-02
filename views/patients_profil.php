@@ -20,6 +20,7 @@
         <a href="liste_patients_ctrl.php" class="nav-link ">Liste Patients</a>
         <a href="create_appointment_ctrl.php" class="nav-link ">Ajouter un rendez-vous</a>
         <a href="list_appointment_ctrl.php" class="nav-link">Liste des rendez-vous</a>
+        <a href="create_appointment_patient_ctrl.php" class="nav-link">Ajouter un patient avec Rendez-vous</a>
     </nav>
     <div class="card col-md-6 m-auto mt-5" style="width: 30rem;background-color: rgba(74, 122, 233, 0.6) !important;">
         <p>Nom : <?=$patientsView->firstname;?></p>

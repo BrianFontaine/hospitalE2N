@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
@@ -13,44 +14,57 @@
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <title>Modifier le rendez-vous </title>
+    <title>Prise de rendez-vous</title>
 </head>
+
 <body>
-<nav class="navbar justify-content-around">
+    <nav class="navbar justify-content-around">
         <a href="../index.php" class="nav-link  "><img src="https://fotomelia.com/wp-content/uploads/edd/2015/03/logo-hospital-1560x631.png" alt=""></a>
         <a href="create_patients_ctrl.php" class="nav-link ">Ajouter un patient</a>
         <a href="liste_patients_ctrl.php" class="nav-link ">Liste Patients</a>
-        <a href="create_appointment_ctrl.php" class="nav-link ">Ajouter un rendez-vous</a>
+        <a href="create_appointment_ctrl.php" class="nav-link ">Prise de rendez-vous</a>
         <a href="list_appointment_ctrl.php" class="nav-link">Liste des rendez-vous</a>
         <a href="create_appointment_patient_ctrl.php" class="nav-link">Ajouter un patient avec Rendez-vous</a>
     </nav>
-<div class="d-flex align-items-center">
-<form action="" method="POST" class="border col-6 rounded form">
+    <div class="d-flex align-items-center mb-5">
+        <form action="" method="POST" class="border col-6 rounded form">
             <div class="col-12" role="alert">
-                <?php if (isset($modifyAppointmentSuccess)): ?>
-                <p>Le rendez-vous a été modifié avec succès ! :)</p>
+                <?php if (isset($createAppointmentSuccess)): ?>
+                <p>Le rendez-vous a été ajouté avec succès ! :)</p>
                 <?php endif; ?>
             </div>
             <div class="col-md-10 m-auto">
-                <legend>Modifier le rendez-vous</legend>
-                <div style="position:relative;">
-                    <label for="patient">Patient :</label>
-                    <input class="form-control" type="search" id="patient" placeholder="Nom du patient" value="<?= $firstname.' '.$lastname; ?>">
-                    <!-- ========= INPUT HIDDEN ===================== -->
-                    <input type="hidden" name="idPatient" id="idPatient" value="<?= $idPatients; ?>">
-                    <input type="hidden" name="id" value="<?= $id; ?>">
-                    <div id="result" style="position:absolute;left:0;right:0;"></div>
-                </div>
-                <div>
-                    <label for="datetimepicker">Date du rendez-vous :</label>
-                    <input id="datetimepicker" name="dateHour" type="text" class="form-control" value="<?= $dateHour; ?>">
-                </div>
-                <input class="btn btn-secondary mt-2 mb-3" type="submit" value="Prise de rendez-vous">
+                <legend>Ajouter un patient avec Rendez-vous</legend>
+                <div class="col-md-10 m-auto">
+            <div>
+                <label for="firstname">Prenom :</label>
+                <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Votre Prénom">
+            </div>
+            <div>
+                <label for="lastname">Nom :</label>
+                <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Votre Nom">
+            </div>
+            <div>
+                <label for="birthdate">Date de Naissance :</label>
+                <input class="form-control" type="date" name="birthdate" id="birthdate">
+            </div>
+            <div>
+                <label for="phone">Téléphone :</label>
+                <input class="form-control" type="text" name="phone" id="phone" placeholder="06.XX.XX.XX.XX">
+            </div>
+            <div>
+                <label for="mail">Email :</label>
+                <input class="form-control" type="mail" id="mail" name="mail" placeholder="nom.prenom@nomdedomaine.fr">
+            </div>
+            <div>
+                <label for="datetimepicker">Date du rendez-vous :</label>
+                <input id="datetimepicker" name="dateHour" type="text" class="form-control">
+            </div>
+                <input class="btn btn-secondary mt-2 mb-3" type="submit" value="Ajouter un patient avec Rendez-vous">
             </div>
         </form>
-</div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-<script src="../node_modules/jquery/dist/jquery.js"></script>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/jquery-datetimepicker/jquery.datetimepicker.js"></script>
     <script src="../assets/js/moment.js"></script>
     <script>
@@ -117,4 +131,5 @@
         })
     </script>
 </body>
+
 </html>

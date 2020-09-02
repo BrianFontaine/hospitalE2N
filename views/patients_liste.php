@@ -23,6 +23,7 @@
         <a href="liste_patients_ctrl.php" class="nav-link ">Liste Patients</a>
         <a href="create_appointment_ctrl.php" class="nav-link ">Ajouter un rendez-vous</a>
         <a href="list_appointment_ctrl.php" class="nav-link">Liste des rendez-vous</a>
+        <a href="create_appointment_patient_ctrl.php" class="nav-link">Ajouter un patient avec Rendez-vous</a>
         <form action="liste_patients_ctrl.php" method="POST">
             <div class="row justify-content-end">
                 <input type="search" class="form-control rounded-pill mr-3 " name="patients_list" id="patients_list"
